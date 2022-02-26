@@ -1,20 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { actionCreators } from '../state';
+import { useActions } from '../hooks/useActions';
 
 const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState('');
-  const dispatch = useDispatch();
+  const { searchReporistories } = useActions();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // validate
     if (term.trim()) {
-      dispatch(actionCreators.searchReporistories(term.trim().toLowerCase()));
+      // dispatch
+      searchReporistories(term.trim().toLowerCase());
+      // => dispatch(actionCreators.searchReporistories(term.trim().toLowerCase()));
     }
-
-    // dispatch
   };
 
   return (
