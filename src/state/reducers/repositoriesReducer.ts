@@ -1,5 +1,5 @@
 import { ActionType } from '../action-types';
-import { Action } from '../actions';
+import { Action } from '../action-interfaces';
 
 interface State {
   loading: boolean;
