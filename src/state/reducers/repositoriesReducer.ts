@@ -7,7 +7,9 @@ interface State {
   data: string[];
 }
 
-const reducer = (state: State, action: Action): State => {
+const initialState = { loading: false, error: null, data: [] };
+
+const reducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case ActionType.SEARCH_REPOSITORIES:
       return {
